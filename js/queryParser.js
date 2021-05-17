@@ -52,6 +52,18 @@ class QueryParser {
       }
   
       res.color = QueryParser._getColorFromUrl(this._commands, res.redirect);
+      //Query names
+      if (res.isKey || res.isSearch || res.isPath) {
+        res.scName = QueryParser._getNameFromUrl(this._commands, res.redirect);
+
+        // if (res.isKey) {
+        //   res.scName = QueryParser._getNameFromUrl(this._commands, res.redirect);
+        // } else if (res.isSearch) {
+        //   res.scName = QueryParser._getNameFromUrl(this._commands, res.redirect) + '\n Search';
+        // } else {
+        //   res.scName = QueryParser._getNameFromUrl(this._commands, res.redirect) + '\n Path';
+        // }
+      }
       return res;
     }
   
@@ -62,6 +74,16 @@ class QueryParser {
         commands
           .filter(c => new URL(c.url).hostname.includes(domain))
           .map(c => c.color)[0] || null
+      );
+    }
+
+    static _getNameFromUrl(commands, url) {
+      const domain = new URL(url).hostname;
+
+      return (
+        commands
+          .filter(c => new URL(c.url).hostname.includes(domain))
+          .map(c => c.name)[0] || null
       );
     }
   

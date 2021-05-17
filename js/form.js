@@ -3,6 +3,7 @@ class Form {
       this._colors = options.colors;
       this._formEl = $.el('#search-form');
       this._inputEl = $.el('#search-input');
+      this._scName = $.el('#scName');
       this._inputElVal = '';
       this._instantRedirect = options.instantRedirect;
       this._newTab = options.newTab;
@@ -146,6 +147,8 @@ class Form {
     _setBackgroundFromQuery(query) {
       if (!this._colors) return;
       this._formEl.style.background = this._parseQuery(query).color;
+      //Query names
+      this._scName.textContent = this._parseQuery(query).scName;
     }
   
     _submitForm(e) {
