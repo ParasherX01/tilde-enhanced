@@ -7,10 +7,17 @@ const CONFIG = {
    * Update line 11 and 13 if you prefer using Google.
    */
   commands: [{
-      name: 'Duckduckgo',
+      name: 'Google',
       key: '*',
-      url: 'https://duckduckgo.com',
-      search: '/?q={}'
+      url: 'https://google.com/',
+      search: '/search?q={}',
+    },
+    {
+      name: 'DuckDuckGo',
+      key: 'd',
+      url: 'https://duckduckgo.com/',
+      color: 'linear-gradient(135deg, #dd5145, #dd5145)',
+      search: '/?q={}',
     },
     {
       category: 'General',
@@ -25,7 +32,7 @@ const CONFIG = {
     {
       category: 'General',
       name: 'Drive',
-      key: 'd',
+      key: 'dr',
       url: 'https://drive.google.com',
       search: '/drive/search?q={}',
       color: 'linear-gradient(135deg, #FFD04B, #1EA362, #4688F3)',
@@ -128,6 +135,7 @@ const CONFIG = {
       key: 'r',
       url: 'https://reddit.com',
       search: '/search?q={}',
+      pathPath: '/r/{}',
       color: 'linear-gradient(135deg, #FF8456, #FF4500)',
       icon: 'reddit',
       quickLaunch: false,
@@ -154,7 +162,7 @@ const CONFIG = {
     {
       category: 'Fun',
       name: 'Twitch',
-      key: 'tw',
+      key: 'ti',
       url: 'https://www.twitch.tv',
       search: '/directory/game/{}',
       color: 'linear-gradient(135deg, #6441a5, #4b367c)',
@@ -166,7 +174,7 @@ const CONFIG = {
     {
       category: 'Other',
       name: 'Twitter',
-      key: 't',
+      key: 'tt',
       url: 'https://www.twitter.com',
       search: '/search?q={}&src=typed_query',
       color: 'linear-gradient(135deg, #1DA1F2, #19608F)',
@@ -202,14 +210,20 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
-      category: 'Other',
+      category: 'General',
       name: 'Translate',
-      key: 'tr',
+      key: 't',
       url: 'https://translate.google.com/',
-      search: '/#view=home&op=translate&sl=auto&tl=en&text={}',
+      search: '/#view=home&op=translate&sl=auto&tl=ru&text={}',
       color: '#1a73e8',
       icon: 'translate',
       quickLaunch: false,
+    },
+    {
+      name: 'VK',
+      key: 'v',
+      url: 'https://vk.com/im',
+      color: 'linear-gradient(135deg, #1a73e8, #2787F5)',
     },
   ],
 
@@ -217,7 +231,7 @@ const CONFIG = {
    * Get suggestions as you type.
    */
   suggestions: true,
-  suggestionsLimit: 4,
+  suggestionsLimit: 6,
 
   /**
    * The order and limit for each suggestion influencer. An "influencer" is
@@ -242,7 +256,7 @@ const CONFIG = {
     },
     {
       name: 'DuckDuckGo',
-      limit: 4
+      limit: 6
     },
   ],
 
@@ -250,8 +264,8 @@ const CONFIG = {
    * Default search suggestions for the specified queries.
    */
   defaultSuggestions: {
-    g: ['g/issues', 'g/pulls', 'gist.github.com'],
-    r: ['r/r/unixporn', 'r/r/startpages', 'r/r/webdev', 'r/r/technology'],
+    //g: ['g/issues', 'g/pulls', 'gist.github.com'],
+    //r: ['r/unixporn', 'r/startpages', 'r/webdev', 'r/technology'],
   },
 
   /**
@@ -295,12 +309,12 @@ const CONFIG = {
   /**
    * The delimiter between the hours and minutes on the clock.
    */
-  clockDelimiter: ' ',
+  clockDelimiter: ':',
 
   /**
    * Show a twenty-four-hour clock instead of a twelve-hour clock with AM/PM.
    */
-  twentyFourHourClock: true,
+  twentyFourHourClock: false,
 
   /**
    * File extension for icon images
