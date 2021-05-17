@@ -142,7 +142,9 @@ class Help {
     }
   
     _handleKeydown(e) {
-      if ($.key(e) === 'escape') this.toggle(false);
+      if ($.key(e) === 'escape') {
+        this.toggle();
+      }
     }
   
     _registerEvents() {
