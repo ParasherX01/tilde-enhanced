@@ -153,7 +153,7 @@ template {
 
 :root {
   /* colors */
-  --background: #0E0E0E;
+  --background: #212121/*#0E0E0E*/;
   --foreground: #F1F1F1;
 
   /* fonts */
@@ -263,6 +263,7 @@ a:focus {
 }
 
 .am-pm {
+  display: none;
   font-size: 1rem;
   letter-spacing: 0.1rem;
 }

@@ -19,7 +19,7 @@ class QueryParser {
         const splitSearch = trimmed.split(this._searchDelimiter);
         const splitPath = trimmed.split(this._pathDelimiter);
   
-        this._commands.some(({ category, key, name, search, url }) => {
+        this._commands.some(({ category, key, name, search, pathPath, url }) => {
           if (query === key) {
             res.key = key;
             res.isKey = true;
@@ -41,7 +41,7 @@ class QueryParser {
             res.isPath = true;
             res.split = this._pathDelimiter;
             res.path = QueryParser._shiftAndTrim(splitPath, res.split);
-            res.redirect = QueryParser._prepPath(url, res.path);
+            res.redirect = QueryParser._prepPath(url, pathPath, res.path);
             return true;
           }
   
@@ -65,8 +65,9 @@ class QueryParser {
       );
     }
   
-    static _prepPath(url, path) {
-      return QueryParser._stripUrlPath(url) + '/' + path;
+    static _prepPath(url, pathPath, path) {
+      if (!pathPath) return QueryParser._stripUrlPath(url) + '/' + path;
+      return QueryParser._stripUrlPath(url) + pathPath.replace('{}', path);
     }
   
     static _prepSearch(url, searchPath, query) {
