@@ -10,8 +10,14 @@
 </head>
 
 <body>
+  <div style="overflow: hidden; position: absolute;">
+    <div id="scNameWrapper">
+      <span id="scName"></span>
+    </div>
+  </div>
   <div class="center disable-select"><time class="clock" id="clock"></time></div>
   <form autocomplete="off" class="center overlay search-form" id="search-form" spellcheck="false">
+    <div class="search-form-bg-cover"></div>
     <div>
       <input class="search-input" id="search-input" title="search" type="text" />
       <ul class="search-suggestions" id="search-suggestions"></ul>

@@ -240,6 +240,7 @@ const CONFIG = {
    * - "Commands" suggestions come from CONFIG.commands
    * - "Default" suggestions come from CONFIG.defaultSuggestions
    * - "DuckDuckGo" suggestions come from the duck duck go search api
+   * - "Google" suggestions come from the google search api
    * - "History" suggestions come from your previously entered queries
    */
   influencers: [{
@@ -255,7 +256,7 @@ const CONFIG = {
       limit: 1
     },
     {
-      name: 'DuckDuckGo',
+      name: 'Google',
       limit: 6
     },
   ],

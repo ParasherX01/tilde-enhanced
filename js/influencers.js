@@ -97,7 +97,7 @@ class DuckDuckGoInfluencer extends Influencer {
     return new Promise(resolve => {
       const endpoint = 'https://duckduckgo.com/ac/';
       const callback = 'autocompleteCallback';
-
+      
       window[callback] = res => {
         const suggestions = res
           .map(i => i.phrase)
@@ -108,6 +108,31 @@ class DuckDuckGoInfluencer extends Influencer {
       };
 
       $.jsonp(`${endpoint}?callback=${callback}&q=${query}`);
+    });
+  }
+}
+
+class GoogleInfluencer extends Influencer {
+  constructor({ queryParser }) {
+    super(...arguments);
+  }
+
+  getSuggestions(rawQuery) {
+    const { query } = this._parseQuery(rawQuery);
+    if (!query) return Promise.resolve([]);
+
+    return new Promise(resolve => {
+      const endpoint = 'http://google.com/complete/search';
+      const callback = 'autocompleteCallback';
+
+      window[callback] = res => {
+        const suggestions = res[1];
+
+        resolve(this._addSearchPrefix(suggestions, rawQuery));
+      };
+
+      $.jsonp(`${endpoint}?callback=${callback}&client=firefox&q=${query}`);
+
     });
   }
 }
