@@ -231,7 +231,7 @@ const CONFIG = {
    * Get suggestions as you type.
    */
   suggestions: true,
-  suggestionsLimit: 6,
+  suggestionsLimit: 10,
 
   /**
    * The order and limit for each suggestion influencer. An "influencer" is
@@ -316,6 +316,11 @@ const CONFIG = {
    * Show a twenty-four-hour clock instead of a twelve-hour clock with AM/PM.
    */
   twentyFourHourClock: false,
+
+  /**
+   * Show AM/PM if twentyFourHourClock is false.
+   */
+  showAmPm: false,
 
   /**
    * File extension for icon images
