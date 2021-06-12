@@ -15,7 +15,31 @@
       <span id="scName"></span>
     </div>
   </div>
-  <div class="center disable-select"><time class="clock" id="clock"></time></div>
+  <div class="center disable-select">
+    <div style="text-align: center" id="clock-container">
+      <div style="display: flex; justify-content: center;">
+        <time class="clock" id="clock"></time>
+        <div class="clock-delimiter">:</div>
+        <time class="clock unnecessary" id="second"></time>
+        <div class="clock-delimiter">,&nbsp;</div>
+        <time class="clock unnecessary" id="date"></time>
+      </div>
+        <div class="power-menu" id="power-menu">
+          <div class="power-menu-block" id="weather">
+            <div id="weather-temp">
+              <div id="weather-temp-today">
+                <img id="wicon-today" src="" alt="weather icon"/>
+                <div id="wtemp-today"></div>
+              </div>
+              <div id="weather-temp-tomorrow">
+                <img id="wicon-tomorrow" src="" alt="weather icon"/>
+                <div id="wtemp-tomorrow"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
   <form autocomplete="off" class="center overlay search-form" id="search-form" spellcheck="false">
     <div class="search-form-bg-cover"></div>
     <div>
@@ -23,6 +47,7 @@
       <ul class="search-suggestions" id="search-suggestions"></ul>
     </div>
   </form>
+  <div id="power-menu-btn"></div>
   <aside class="center help overlay disable-select" id="help"></aside>
 
 
@@ -35,6 +60,8 @@
   <script src="js/influencers.js"></script>
   <script src="js/queryParser.js"></script>
   <script src="js/suggester.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/powermenu.js"></script>
   <script src="js/index.js"></script>
   
 </body>

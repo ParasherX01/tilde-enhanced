@@ -252,14 +252,40 @@ a:focus {
   visibility: hidden;
 }
 
-.clock {
+.clock, .clock-delimiter {
   display: block;
   margin-top: -0.06rem;
   font-size: 4rem;
   font-weight: var(--font-weight-normal);
   text-align: center;
   letter-spacing: 0.05rem;
+}
+
+.clock.unnecessary, .clock-delimiter {
+  max-width: 0px;
+  transition: margin .5s, max-width .5s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.clock.unnecessary.unwrap, .clock-delimiter.unwrap {
+  margin-left: 20px;
+  max-width: 100%;
+}
+
+.clock-delimiter.unwrap {
+  margin-left: 0px !important;
+}
+
+#clock {
   cursor: pointer;
+}
+
+#second {
+  margin-left: 0px !important;
+}
+
+#date {
+  margin-left: 0px;
 }
 
 .am-pm {
@@ -281,6 +307,53 @@ a:focus {
   background: -moz-element(#scNameWrapper) repeat;
 }
 
+#power-menu-btn {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(20,20,20,1) 100%);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .5s;
+}
+#power-menu-btn:hover {
+  opacity: 1;
+}
+
+#weather-temp-today, #weather-temp-tomorrow {
+  width: min-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+#weather-temp-today {
+  margin: 0 auto;
+  cursor: pointer;
+}
+#weather-temp-tomorrow {
+  margin: 0 auto;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .2s linear;
+}
+#weather-temp-today:hover + #weather-temp-tomorrow, #weather-temp-tomorrow:hover, #weather-temp-tomorrow.unwrap {
+  max-height: 130px;
+}
+
+#wtemp-today, #wtemp-tomorrow {
+  margin-right: 25px;
+}
+
+#wtemp-today, #wtemp-tomorrow {
+  font-size: 2.5rem;
+  white-space: nowrap;
+}
+
+#wicon-today, #wicon-tomorrow {
+  width: 130px;
+}
+
 #scName {
   display: inline-block;
   -webkit-transform: rotate(-35deg);
@@ -290,6 +363,21 @@ a:focus {
   opacity: .1;
   white-space: break-spaces;
   text-align: center;
+}
+
+.power-menu {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - 20vw);
+  transition: max-height .3s linear;
+  height: calc(100vh - 6rem - 200px);
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.unwrap {
+  max-height: calc(100vh - 6rem - 200px) !important;
 }
 
 .search-form>div {
@@ -441,7 +529,7 @@ body.form .search-form {
     display: flex;
     padding: 0;
   }
-  .clock {
+  .clock, .clock-delimiter {
     font-size: 6rem;
   }
 

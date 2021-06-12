@@ -64,3 +64,9 @@ new Clock({
   toggleHelp: help.toggle,
   twentyFourHourClock: CONFIG.twentyFourHourClock,
 });
+
+new PowerMenu({
+  weatherApi: CONFIG.weatherApi,
+  cityName: CONFIG.cityName,
+  cityId: CONFIG.cityId
+});

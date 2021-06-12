@@ -325,5 +325,20 @@ const CONFIG = {
   /**
    * File extension for icon images
    */
-  iconExtension: 'png'
+  iconExtension: 'png',
+
+  /**
+   * File extension for icon images
+   */
+  weatherApi: '38957ffe435ded320bff2396733c6ce4',
+
+  /**
+   * File extension for icon images
+   */
+  cityName: 'Maykop',
+
+  /**
+   * File extension for icon images
+   */
+  cityId: '528293',
 };
