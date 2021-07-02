@@ -1,3 +1,6 @@
+/*
+
+//Remove pretendent
 class Help {
     constructor(options) {
       this._el = $.el('#help');
@@ -151,3 +154,5 @@ class Help {
       document.addEventListener('keydown', this._handleKeydown);
     }
   }
+
+*/

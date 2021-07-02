@@ -37,6 +37,7 @@ const suggester = new Suggester({
   limit: CONFIG.suggestionsLimit,
 });
 
+/*
 const help = new Help({
   commands: CONFIG.commands,
   newTab: CONFIG.newTab,
@@ -44,6 +45,7 @@ const help = new Help({
   invertedColors: CONFIG.invertedColors,
   showKeys: CONFIG.showKeys
 });
+*/
 
 const form = new Form({
   colors: CONFIG.colors,

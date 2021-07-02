@@ -197,6 +197,7 @@ body {
   transition: background 0.4s;
   background: var(--background);
   color: var(--foreground);
+  overflow: hidden;
 }
 
 input,
@@ -276,12 +277,18 @@ a:focus {
   margin-left: 0px !important;
 }
 
+/* .clock.unwrap, .clock-delimiter.unwrap {
+  font-size: 2rem !important;
+} */
+
 #clock {
   cursor: pointer;
 }
 
 #second {
   margin-left: 0px !important;
+  width: 2.5ch;
+  text-align: left;
 }
 
 #date {
@@ -307,6 +314,13 @@ a:focus {
   background: -moz-element(#scNameWrapper) repeat;
 }
 
+#clock-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 #power-menu-btn {
   position: absolute;
   bottom: 0;
@@ -321,6 +335,12 @@ a:focus {
   opacity: 1;
 }
 
+#weather-temp {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 #weather-temp-today, #weather-temp-tomorrow {
   width: min-content;
   display: grid;
@@ -328,17 +348,15 @@ a:focus {
   align-items: center;
 }
 #weather-temp-today {
-  margin: 0 auto;
   cursor: pointer;
 }
 #weather-temp-tomorrow {
-  margin: 0 auto;
-  max-height: 0px;
+  max-width: 0px;
   overflow: hidden;
-  transition: max-height .2s linear;
+  transition: max-width .2s linear;
 }
 #weather-temp-today:hover + #weather-temp-tomorrow, #weather-temp-tomorrow:hover, #weather-temp-tomorrow.unwrap {
-  max-height: 130px;
+  max-width: 40ch;
 }
 
 #wtemp-today, #wtemp-tomorrow {
@@ -376,11 +394,87 @@ a:focus {
   overflow: hidden;
 }
 
-.unwrap {
+.power-menu.unwrap {
   max-height: calc(100vh - 6rem - 200px) !important;
 }
 
-.search-form>div {
+#commands-list {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(2, 100px);
+  justify-content: center;
+  transition: grid-template-rows .2s;
+}
+#commands-list.tips {
+  grid-template-rows: repeat(2, 130px);
+}
+
+.command-tip {
+  background: #333;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin: -5px;
+  font-family: "Metropolis";
+}
+.command-button {
+  background: #48484A;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px #101010;
+  transition: box-shadow .03s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.command-button:hover {
+  box-shadow: inset 0 0 0px #10101000, 0px 0px 10px 1px #101010;
+}
+
+.command-button:active, .command-button.activated {
+  box-shadow: 0px 0px 4px 3px #101010 inset;
+}
+
+.command-button > svg {
+  /* 
+  width: calc(100% - 40px);
+  height: calc(100% - 40px); 
+  */
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  transition: all .03s;
+  z-index: 101;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(50);
+  }
+}
+
+#ripple {
+  display: none;
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  border-radius: 50%;
+  z-index: 100; 
+  width: 80px; 
+  height: 80px;
+}
+#ripple.activated {
+  display: block;
+  animation: ripple .7s forwards;
+}
+
+.command-button:active > svg, .command-button.activated > svg {
+  width: calc(100% - 42px);
+  height: calc(100% - 42px);
+  margin: 21px;
+}
+
+.search-form > div {
   width: 100%;
 }
 
@@ -532,6 +626,10 @@ body.form .search-form {
   .clock, .clock-delimiter {
     font-size: 6rem;
   }
+  
+  /* .clock.unwrap, .clock-delimiter.unwrap {
+    font-size: 3rem !important;
+  } */
 
   .search-input {
     text-align: center;

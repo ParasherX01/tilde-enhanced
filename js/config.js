@@ -6,11 +6,66 @@ const CONFIG = {
    * Commands without a category don't show up in the help menu.
    * Update line 11 and 13 if you prefer using Google.
    */
-  commands: [{
+  commands: [
+    {
       name: 'Google',
       key: '*',
       url: 'https://google.com/',
       search: '/search?q={}',
+    },
+    {
+      category: 'General',
+      name: 'YouTube',
+      key: 'y',
+      button: 'y',
+      url: 'https://youtube.com',
+      search: '/results?search_query={}',
+      color: 'linear-gradient(135deg, #cd201f, #cd4c1f)',
+      icon: 'youtube',
+      quickLaunch: false,
+    },
+    {
+      category: 'General',
+      name: 'Reddit',
+      key: 'r',
+      button: 'r',
+      url: 'https://reddit.com',
+      search: '/search?q={}',
+      pathPath: '/r/{}',
+      color: 'linear-gradient(135deg, #FF8456, #FF4500)',
+      icon: 'reddit',
+      quickLaunch: false,
+    },
+    {
+      category: 'General',
+      name: 'Translate',
+      key: 't',
+      button: 't',
+      url: 'https://translate.google.com/',
+      search: '/#view=home&op=translate&sl=auto&tl=ru&text={}',
+      color: '#1a73e8',
+      icon: 'translate',
+      quickLaunch: false,
+    },
+    {
+      category: 'General',
+      name: 'VK',
+      key: 'v',
+      button: 'v',
+      icon: 'vk',
+      url: 'https://vk.com/im',
+      color: 'linear-gradient(135deg, #1a73e8, #2787F5)',
+    },
+    {
+      category: 'General',
+      name: 'GitHub',
+      key: 'g',
+      button: 'g',
+      url: 'https://github.com',
+      search: '/search?q={}',
+      color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
+      icon: 'github',
+      quickLaunch: true,
     },
     {
       name: 'DuckDuckGo',
@@ -20,7 +75,6 @@ const CONFIG = {
       search: '/?q={}',
     },
     {
-      category: 'General',
       name: 'Mail',
       key: 'm',
       url: 'https://gmail.com',
@@ -30,7 +84,6 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
-      category: 'General',
       name: 'Drive',
       key: 'dr',
       url: 'https://drive.google.com',
@@ -43,6 +96,7 @@ const CONFIG = {
       category: 'General',
       name: 'Telegram',
       key: 'tg',
+      button: 'm',
       url: 'https://web.telegram.org',
       color: '#5682a3',
       icon: 'telegram',
@@ -52,13 +106,13 @@ const CONFIG = {
       category: 'General',
       name: 'WhatsApp',
       key: 'w',
+      button: 'w',
       url: 'https://web.whatsapp.com',
       color: 'linear-gradient(135deg, #25D366, #128C7E, #075E54)',
       icon: 'whatsapp',
       quickLaunch: false,
     },
     {
-      category: 'General',
       name: 'Discord',
       key: 'dc',
       url: 'https://discord.com/app',
@@ -66,20 +120,7 @@ const CONFIG = {
       icon: 'discord',
       quickLaunch: false,
     },
-
-
     {
-      category: 'Programming',
-      name: 'GitHub',
-      key: 'g',
-      url: 'https://github.com',
-      search: '/search?q={}',
-      color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
-      icon: 'github',
-      quickLaunch: true,
-    },
-    {
-      category: 'Programming',
       name: 'StackOverflow',
       key: 'st',
       url: 'https://stackoverflow.com',
@@ -99,7 +140,6 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
-      category: 'Programming',
       name: 'MDN',
       key: 'md',
       url: 'https://developer.mozilla.org/en-US',
@@ -109,7 +149,6 @@ const CONFIG = {
       quickLaunch: false,
     },
     {
-      category: 'Programming',
       name: 'DevDocs',
       key: 'dd',
       url: 'https://devdocs.io',
@@ -117,31 +156,7 @@ const CONFIG = {
       icon: 'devdocs',
       quickLaunch: false,
     },
-
-
     {
-      category: 'Fun',
-      name: 'YouTube',
-      key: 'y',
-      url: 'https://youtube.com',
-      search: '/results?search_query={}',
-      color: 'linear-gradient(135deg, #cd201f, #cd4c1f)',
-      icon: 'youtube',
-      quickLaunch: false,
-    },
-    {
-      category: 'Fun',
-      name: 'Reddit',
-      key: 'r',
-      url: 'https://reddit.com',
-      search: '/search?q={}',
-      pathPath: '/r/{}',
-      color: 'linear-gradient(135deg, #FF8456, #FF4500)',
-      icon: 'reddit',
-      quickLaunch: false,
-    },
-    {
-      category: 'Fun',
       name: 'Netflix',
       key: 'n',
       url: 'https://www.netflix.com',
@@ -150,7 +165,6 @@ const CONFIG = {
       quickLaunch: false,
     },
     {
-      category: 'Fun',
       name: 'Spotify',
       key: 's',
       url: 'https://open.spotify.com/',
@@ -160,7 +174,6 @@ const CONFIG = {
       quickLaunch: false,
     },
     {
-      category: 'Fun',
       name: 'Twitch',
       key: 'ti',
       url: 'https://www.twitch.tv',
@@ -169,10 +182,7 @@ const CONFIG = {
       icon: 'twitch',
       quickLaunch: false,
     },
-
-
     {
-      category: 'Other',
       name: 'Twitter',
       key: 'tt',
       url: 'https://www.twitter.com',
@@ -182,7 +192,6 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
-      category: 'Other',
       name: 'Instagram',
       key: 'i',
       url: 'https://www.instagram.com',
@@ -191,7 +200,6 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
-      category: 'Other',
       name: 'LinkedIn',
       key: 'l',
       url: 'https://linkedin.com',
@@ -201,29 +209,12 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
-      category: 'Other',
       name: 'Notion',
       key: 'ns',
       url: 'https://www.notion.so',
       color: 'linear-gradient(135deg, #FFF, #3F3F3F)',
       icon: 'notion',
       quickLaunch: true,
-    },
-    {
-      category: 'General',
-      name: 'Translate',
-      key: 't',
-      url: 'https://translate.google.com/',
-      search: '/#view=home&op=translate&sl=auto&tl=ru&text={}',
-      color: '#1a73e8',
-      icon: 'translate',
-      quickLaunch: false,
-    },
-    {
-      name: 'VK',
-      key: 'v',
-      url: 'https://vk.com/im',
-      color: 'linear-gradient(135deg, #1a73e8, #2787F5)',
     },
   ],
 

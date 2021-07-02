@@ -15,15 +15,15 @@
       <span id="scName"></span>
     </div>
   </div>
-  <div class="center disable-select">
-    <div style="text-align: center" id="clock-container">
-      <div style="display: flex; justify-content: center;">
+  <div class="center disable-select" id="main">
+    <div id="clock-container">
+      <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 0 100px; flex-basis: 100%;">
         <time class="clock" id="clock"></time>
         <div class="clock-delimiter">:</div>
         <time class="clock unnecessary" id="second"></time>
-        <div class="clock-delimiter">,&nbsp;</div>
         <time class="clock unnecessary" id="date"></time>
       </div>
+      <div>
         <div class="power-menu" id="power-menu">
           <div class="power-menu-block" id="weather">
             <div id="weather-temp">
@@ -37,7 +37,9 @@
               </div>
             </div>
           </div>
-      </div>
+          <div class="power-menu-block" id="commands-list">         </div>
+        </div>
+      </div> 
     </div>
   </div>
   <form autocomplete="off" class="center overlay search-form" id="search-form" spellcheck="false">
@@ -49,6 +51,7 @@
   </form>
   <div id="power-menu-btn"></div>
   <aside class="center help overlay disable-select" id="help"></aside>
+  <div id="ripple"></div>
 
 
   <script src="js/svg-inject.min.js"></script>

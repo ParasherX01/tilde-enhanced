@@ -32,7 +32,7 @@ class Clock {
       this._el.innerHTML = `${hours}${this._delimiter}${minutes}${amPm}`;
       this._el.setAttribute('datetime', date.toTimeString());
 
-      this._elSecond.innerHTML = `${date.getSeconds().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}`;
+      this._elSecond.innerHTML = `${date.getSeconds().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})},&nbsp;`;
       this._elSecond.setAttribute('datetime', date.toTimeString());
     }
 
