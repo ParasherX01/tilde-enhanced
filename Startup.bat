@@ -1,1 +1,1 @@
-python -m http.server --bind localhost --directory "main" 8000
+python -m http.server --bind localhost --directory %1 8000

@@ -1,3 +1,4 @@
 Set WshShell = CreateObject("WScript.Shell")
-WshShell.Run chr(34) & CreateObject("Scripting.FileSystemObject").GetParentFolderName(WScript.ScriptFullName) & "\Startup.bat" & Chr(34), 0
+path = CreateObject("Scripting.FileSystemObject").GetParentFolderName(WScript.ScriptFullName)
+WshShell.Run path & "\Startup.bat " & Chr(34) & path & "\main" & Chr(34), 1
 Set WshShell = Nothing
