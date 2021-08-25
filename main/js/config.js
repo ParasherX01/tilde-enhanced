@@ -1,4 +1,4 @@
-const CONFIG = {
+const DEFAULT_CONFIG = {
   /**
    * The category, name, key, url, search path, color, icon, and quicklaunch properties for your commands.
    * Icons must be added to "icons" folder and their values/names must be updated.
@@ -6,75 +6,14 @@ const CONFIG = {
    * Commands without a category don't show up in the help menu.
    * Update line 11 and 13 if you prefer using Google.
    */
-  commands: [
-    {
-      name: 'Google',
+  commands: [{
+      name: 'Duckduckgo',
       key: '*',
-      url: 'https://google.com/',
-      search: '/search?q={}',
+      url: 'https://duckduckgo.com',
+      search: '/?q={}'
     },
     {
       category: 'General',
-      name: 'YouTube',
-      key: 'y',
-      button: 'y',
-      url: 'https://youtube.com',
-      search: '/results?search_query={}',
-      color: 'linear-gradient(135deg, #cd201f, #cd4c1f)',
-      icon: 'youtube',
-      quickLaunch: false,
-    },
-    {
-      category: 'General',
-      name: 'Reddit',
-      key: 'r',
-      button: 'r',
-      url: 'https://reddit.com',
-      search: '/search?q={}',
-      pathPath: '/r/{}',
-      color: 'linear-gradient(135deg, #FF8456, #FF4500)',
-      icon: 'reddit',
-      quickLaunch: false,
-    },
-    {
-      category: 'General',
-      name: 'Translate',
-      key: 't',
-      button: 't',
-      url: 'https://translate.google.com/',
-      search: '/#view=home&op=translate&sl=auto&tl=ru&text={}',
-      color: '#1a73e8',
-      icon: 'translate',
-      quickLaunch: false,
-    },
-    {
-      category: 'General',
-      name: 'VK',
-      key: 'v',
-      button: 'v',
-      icon: 'vk',
-      url: 'https://vk.com/im',
-      color: 'linear-gradient(135deg, #1a73e8, #2787F5)',
-    },
-    {
-      category: 'General',
-      name: 'GitHub',
-      key: 'g',
-      button: 'g',
-      url: 'https://github.com',
-      search: '/search?q={}',
-      color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
-      icon: 'github',
-      quickLaunch: true,
-    },
-    {
-      name: 'DuckDuckGo',
-      key: 'd',
-      url: 'https://duckduckgo.com/',
-      color: 'linear-gradient(135deg, #dd5145, #dd5145)',
-      search: '/?q={}',
-    },
-    {
       name: 'Mail',
       key: 'm',
       url: 'https://gmail.com',
@@ -84,8 +23,9 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
+      category: 'General',
       name: 'Drive',
-      key: 'dr',
+      key: 'd',
       url: 'https://drive.google.com',
       search: '/drive/search?q={}',
       color: 'linear-gradient(135deg, #FFD04B, #1EA362, #4688F3)',
@@ -96,7 +36,6 @@ const CONFIG = {
       category: 'General',
       name: 'Telegram',
       key: 'tg',
-      button: 'm',
       url: 'https://web.telegram.org',
       color: '#5682a3',
       icon: 'telegram',
@@ -106,13 +45,13 @@ const CONFIG = {
       category: 'General',
       name: 'WhatsApp',
       key: 'w',
-      button: 'w',
       url: 'https://web.whatsapp.com',
       color: 'linear-gradient(135deg, #25D366, #128C7E, #075E54)',
       icon: 'whatsapp',
       quickLaunch: false,
     },
     {
+      category: 'General',
       name: 'Discord',
       key: 'dc',
       url: 'https://discord.com/app',
@@ -120,7 +59,20 @@ const CONFIG = {
       icon: 'discord',
       quickLaunch: false,
     },
+
+
     {
+      category: 'Programming',
+      name: 'GitHub',
+      key: 'g',
+      url: 'https://github.com',
+      search: '/search?q={}',
+      color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
+      icon: 'github',
+      quickLaunch: true,
+    },
+    {
+      category: 'Programming',
       name: 'StackOverflow',
       key: 'st',
       url: 'https://stackoverflow.com',
@@ -140,6 +92,7 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
+      category: 'Programming',
       name: 'MDN',
       key: 'md',
       url: 'https://developer.mozilla.org/en-US',
@@ -149,6 +102,7 @@ const CONFIG = {
       quickLaunch: false,
     },
     {
+      category: 'Programming',
       name: 'DevDocs',
       key: 'dd',
       url: 'https://devdocs.io',
@@ -156,7 +110,30 @@ const CONFIG = {
       icon: 'devdocs',
       quickLaunch: false,
     },
+
+
     {
+      category: 'Fun',
+      name: 'YouTube',
+      key: 'y',
+      url: 'https://youtube.com',
+      search: '/results?search_query={}',
+      color: 'linear-gradient(135deg, #cd201f, #cd4c1f)',
+      icon: 'youtube',
+      quickLaunch: false,
+    },
+    {
+      category: 'Fun',
+      name: 'Reddit',
+      key: 'r',
+      url: 'https://reddit.com',
+      search: '/search?q={}',
+      color: 'linear-gradient(135deg, #FF8456, #FF4500)',
+      icon: 'reddit',
+      quickLaunch: false,
+    },
+    {
+      category: 'Fun',
       name: 'Netflix',
       key: 'n',
       url: 'https://www.netflix.com',
@@ -165,6 +142,7 @@ const CONFIG = {
       quickLaunch: false,
     },
     {
+      category: 'Fun',
       name: 'Spotify',
       key: 's',
       url: 'https://open.spotify.com/',
@@ -174,17 +152,21 @@ const CONFIG = {
       quickLaunch: false,
     },
     {
+      category: 'Fun',
       name: 'Twitch',
-      key: 'ti',
+      key: 'tw',
       url: 'https://www.twitch.tv',
       search: '/directory/game/{}',
       color: 'linear-gradient(135deg, #6441a5, #4b367c)',
       icon: 'twitch',
       quickLaunch: false,
     },
+
+
     {
+      category: 'Other',
       name: 'Twitter',
-      key: 'tt',
+      key: 't',
       url: 'https://www.twitter.com',
       search: '/search?q={}&src=typed_query',
       color: 'linear-gradient(135deg, #1DA1F2, #19608F)',
@@ -192,6 +174,7 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
+      category: 'Other',
       name: 'Instagram',
       key: 'i',
       url: 'https://www.instagram.com',
@@ -200,6 +183,7 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
+      category: 'Other',
       name: 'LinkedIn',
       key: 'l',
       url: 'https://linkedin.com',
@@ -209,6 +193,7 @@ const CONFIG = {
       quickLaunch: true,
     },
     {
+      category: 'Other',
       name: 'Notion',
       key: 'ns',
       url: 'https://www.notion.so',
@@ -216,13 +201,23 @@ const CONFIG = {
       icon: 'notion',
       quickLaunch: true,
     },
+    {
+      category: 'Other',
+      name: 'Translate',
+      key: 'tr',
+      url: 'https://translate.google.com/',
+      search: '/#view=home&op=translate&sl=auto&tl=en&text={}',
+      color: '#1a73e8',
+      icon: 'translate',
+      quickLaunch: false,
+    },
   ],
 
   /**
    * Get suggestions as you type.
    */
   suggestions: true,
-  suggestionsLimit: 10,
+  suggestionsLimit: 4,
 
   /**
    * The order and limit for each suggestion influencer. An "influencer" is
@@ -231,7 +226,6 @@ const CONFIG = {
    * - "Commands" suggestions come from CONFIG.commands
    * - "Default" suggestions come from CONFIG.defaultSuggestions
    * - "DuckDuckGo" suggestions come from the duck duck go search api
-   * - "Google" suggestions come from the google search api
    * - "History" suggestions come from your previously entered queries
    */
   influencers: [{
@@ -247,8 +241,8 @@ const CONFIG = {
       limit: 1
     },
     {
-      name: 'Google',
-      limit: 6
+      name: 'DuckDuckGo',
+      limit: 4
     },
   ],
 
@@ -256,8 +250,8 @@ const CONFIG = {
    * Default search suggestions for the specified queries.
    */
   defaultSuggestions: {
-    //g: ['g/issues', 'g/pulls', 'gist.github.com'],
-    //r: ['r/unixporn', 'r/startpages', 'r/webdev', 'r/technology'],
+    g: ['g/issues', 'g/pulls', 'gist.github.com'],
+    r: ['r/r/unixporn', 'r/r/startpages', 'r/r/webdev', 'r/r/technology'],
   },
 
   /**
@@ -301,35 +295,15 @@ const CONFIG = {
   /**
    * The delimiter between the hours and minutes on the clock.
    */
-  clockDelimiter: ':',
+  clockDelimiter: ' ',
 
   /**
    * Show a twenty-four-hour clock instead of a twelve-hour clock with AM/PM.
    */
-  twentyFourHourClock: false,
-
-  /**
-   * Show AM/PM if twentyFourHourClock is false.
-   */
-  showAmPm: false,
+  twentyFourHourClock: true,
 
   /**
    * File extension for icon images
    */
-  iconExtension: 'png',
-
-  /**
-   * File extension for icon images
-   */
-  weatherApi: '38957ffe435ded320bff2396733c6ce4',
-
-  /**
-   * File extension for icon images
-   */
-  cityName: 'Maykop',
-
-  /**
-   * File extension for icon images
-   */
-  cityId: '528293',
+  iconExtension: 'png'
 };

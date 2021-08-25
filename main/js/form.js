@@ -49,6 +49,18 @@ class Form {
       }
     }
   
+    _defaultConfig() {
+      localStorage.removeItem('customConfigCookie');
+      localStorage.setItem('customConfigCookie', JSON.stringify(false));
+      location.reload();
+    }
+
+    _customConfig() {
+      localStorage.removeItem('customConfigCookie');
+      localStorage.setItem('customConfigCookie', JSON.stringify(true));
+      location.reload();
+    }
+
     _invertConfig() {
       let isInverted = !CONFIG.invertedColors;
       localStorage.removeItem('invertColorCookie');
@@ -82,6 +94,8 @@ class Form {
       const isLaunch = newQuery === 'q!';
       const isInvert = newQuery === 'invert!';
       const isShowKeys = newQuery === 'keys!';
+      const isDefaultConfig = newQuery === 'default!';
+      const isCustomConfig = newQuery === 'custom!';
       const isCategoryLaunch = this._isCategoryLaunch(newQuery);
       const { isKey } = this._parseQuery(newQuery);
       this._inputElVal = newQuery;
@@ -92,6 +106,8 @@ class Form {
       if (isLaunch) this._quickLaunch();
       if (isInvert) this._invertConfig();
       if (isShowKeys) this._showKeysConfig();
+      if (isDefaultConfig) this._defaultConfig();
+      if (isCustomConfig) this._customConfig();
       if (isCategoryLaunch) this._categoryLaunch();
       if (this._instantRedirect && isKey) this._submitWithValue(newQuery);
     }

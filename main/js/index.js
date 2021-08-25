@@ -1,3 +1,5 @@
+const CONFIG = JSON.parse(localStorage.getItem('customConfigCookie')) ? CUSTOM_CONFIG : DEFAULT_CONFIG
+
 // Get invertedColors preference from cookies
 CONFIG.invertedColors = localStorage.getItem('invertColorCookie') ?
   JSON.parse(localStorage.getItem('invertColorCookie')) :
