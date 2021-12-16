@@ -164,7 +164,9 @@ class Form {
       if (!this._colors) return;
       this._formEl.style.background = this._parseQuery(query).color;
       //Query names
-      this._scName.textContent = this._parseQuery(query).scName;
+      this._scName.textContent = this._parseQuery(query).scName
+      document.documentElement.style.setProperty('--obj-width', -this._scName.parentElement.offsetWidth + 'px')
+      document.documentElement.style.setProperty('--obj-height', this._scName.parentElement.offsetHeight + 'px')
     }
   
     _submitForm(e) {

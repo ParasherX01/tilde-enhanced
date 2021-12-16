@@ -10,6 +10,7 @@ class PowerMenu {
     this.dateEl = document.getElementById('date');
     this.commandsEl = document.getElementById('commands-list');
     this.delimiters = document.getElementsByClassName('clock-delimiter');
+    this.unwrappedHide = document.getElementsByClassName('unwrapped-hide');
 
     Weather.setApiKey(this.weatherApi)
 
@@ -96,7 +97,7 @@ class PowerMenu {
                 src='assets/icons/${CONFIG.commands[i].icon}.svg' 
                 onload='SVGInject(this)' 
               />
-              <div class='command-tip' id='command-tip-${CONFIG.commands[i].button}'>${CONFIG.commands[i].button}</div>
+              <div class='command-tip' id='command-tip-${CONFIG.commands[i].button}'>${CONFIG.commands[i].button.toUpperCase()}</div>
           </div>`
         )
         j++
@@ -156,6 +157,9 @@ class PowerMenu {
     for(const e of this.delimiters) {
       e.classList.add('unwrap')
     }
+    for(const e of this.unwrappedHide) {
+      e.classList.add('unwrap')
+    }
   }
 
   wrap() {
@@ -164,6 +168,9 @@ class PowerMenu {
     this.dateEl.classList.remove('unwrap')
     this.timeEl.classList.remove('unwrap')
     for(const e of this.delimiters) {
+      e.classList.remove('unwrap')
+    }
+    for(const e of this.unwrappedHide) {
       e.classList.remove('unwrap')
     }
   }
