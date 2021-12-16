@@ -46,8 +46,8 @@ class Suggester {
   
     _appendSuggestions(suggestions, input) {
       suggestions.some((suggestion, i) => {
-        const match = new RegExp($.escapeRegex(input), 'ig');
-        const suggestionHtml = suggestion.replace(match, `<b>${input}</b>`);
+        //const match = new RegExp($.escapeRegex(input), 'ig');
+        const suggestionHtml = suggestion //.replace(match, `<b>${input}</b>`);
   
         this._el.insertAdjacentHTML(
           'beforeend',
